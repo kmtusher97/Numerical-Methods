@@ -4,21 +4,20 @@
 #include <stdio.h>
 #define EPS 1e-7
 
-double function( double x ) { /* equation */
+double f( double x ) {
         return ( x*x + x - 2 );
 }
 
 void FalsePosition( double x1, double x2 ) {
-        int itrssn = 0;
+        int i = 0;
         double x;
-        for(itrssn=1; itrssn<=70; itrssn++) {
-                x = x1 - ( ( function( x1 ) * ( x2-x1 ) ) / ( function( x2 ) - function( x1 ) ) );
-                printf("After iteration %3d root = %.6lf\n", itrssn, x);
-                if( function( x ) * function( x1 ) < 0 ) x2 = x;
+        for(i=1; i<=500; i++) {
+                x = x1 - ( ( f( x1 ) * ( x2-x1 ) ) / ( f( x2 ) - f( x1 ) ) );
+                if( f( x ) * f( x1 ) < 0 ) x2 = x;
                 else x1 = x;
         }
         printf("\nRoot = %.6lf\n", x);
-        printf("f( %.6lf ) = %.8lf\n", x, function( x ));
+        printf("f( %.6lf ) = %.6lf\n", x, f( x ));
 }
 
 int main() {
@@ -26,12 +25,11 @@ int main() {
         printf("Enter the starting values\n");
         double x1, x2;
         scanf("%lf %lf", &x1, &x2);
-        if( function( x1 ) * function( x2 ) >= 0.0 ) {
+        if( f( x1 ) * f( x2 ) >= 0.0 ) {
                 printf("\nThere is no root in this interval\n");
         }
         else {
                 FalsePosition( x1, x2 );
         }
-
         return 0;
 }
