@@ -22,7 +22,7 @@ void FalsePosition( double x1, double x2 ) {
 }
 
 int main() {
-        printf("\nSolution of x^2 + x - 2 = 0 equation using False Position Method\n\n");
+        printf("\nFalse Position Method\n\n");
         printf("Enter the starting values\n");
         double x1, x2;
         scanf("%lf %lf", &x1, &x2);
