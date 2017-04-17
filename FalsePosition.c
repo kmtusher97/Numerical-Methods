@@ -11,7 +11,7 @@ double function( double x ) { /* equation */
 void FalsePosition( double x1, double x2 ) {
         int itrssn = 0;
         double x;
-        for(itrssn=1; itrssn<=50; itrssn++) {
+        for(itrssn=1; itrssn<=70; itrssn++) {
                 x = x1 - ( ( function( x1 ) * ( x2-x1 ) ) / ( function( x2 ) - function( x1 ) ) );
                 printf("After iteration %3d root = %.6lf\n", itrssn, x);
                 if( function( x ) * function( x1 ) < 0 ) x2 = x;
